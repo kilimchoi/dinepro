@@ -55,6 +55,6 @@
 </html>
 <script>
   function alertConfirmation() { 
-    alert("Order has been successful");
+    alert("Your order will be ready in 15 minutes");
   }
 </script>
