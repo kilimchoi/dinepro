@@ -26,7 +26,6 @@
       </div>
       <div data-role="content">
           alertConfirmation();
-          Order Sent!
       </div>
   </div>
 
