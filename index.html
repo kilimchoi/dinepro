@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>DinePro</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+  <link href="css/codiqa.ext.min.css" rel="stylesheet">
+  <link href="css/jquery.mobile-1.3.1.min.css" rel="stylesheet">
+
+  <script src="js/jquery-1.9.1.min.js"></script>
+  <script src="js/jquery.mobile-1.3.1.min.js"></script>
+  <script src="js/codiqa.ext.min.js"></script>
+  <script src="js/dinepro.js"></script>
+  <script src="js/simpleCart.js"></script>
+</head>
+<body>
+  <div data-role="page" data-control-title="Home" id="page1">
+      <div data-theme="b" data-role="header">
+          <h3>
+              DinePro
+          </h3>
+      </div>
+      <div data-role="content">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Restaurants
+              </li>
+              <li data-theme="c">
+                  <a href="#page2" data-transition="slide">
+                      Gypsy's
+                  </a>
+              </li>
+              <li data-theme="c">
+                  <a href="#page1" data-transition="slide">
+                      Blank Restaurant 1
+                  </a>
+              </li>
+              <li>
+                  <a href="#page1" data-transition="slide">
+                      Blank Restaurant 2
+                  </a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  
+  <!-- Gypsy's -->
+  <div data-role="page" data-control-title="Gypsy's" id="page2">
+      <div data-theme="b" data-role="header">
+          <a data-role="button" data-direction="reverse" data-transition="slide"
+          data-theme="b" href="#page1" class="ui-btn-left">
+              Back
+          </a>
+          <h3>
+              Gypsy's
+          </h3>
+      </div>
+      <div data-role="content">
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Food
+              </li>
+              
+              <!-- Restaurant Food Items -->
+              <li data-theme="c" class="simpleCart_shelfItem">
+                  <a class="item_add" href="javascript:;">
+                  <div class="item_name">
+                  Pasta with Chicken
+                  </div>
+                  <span class="ui-li-count">
+                      <div class="item_price">
+                      $7.50
+                      </div>
+                  </span>
+                  </a>
+              </li>
+              
+              
+              <li data-theme="c" class="simpleCart_shelfItem">
+                    <a class="item_add" href="javascript:;">
+                    <div class="item_name">
+                    Garlic Bread
+                    </div>
+                    <span class="ui-li-count">
+                        <div class="item_price">
+                        $3.25
+                        </div>
+                    </span>
+                    </a>
+                </li>
+                
+                <li data-theme="c" class="simpleCart_shelfItem">
+                        <a class="item_add" href="javascript:;">
+                        <div class="item_name">
+                        Meatloaf
+                        </div>
+                        <span class="ui-li-count">
+                            <div class="item_price">
+                            $5.10
+                            </div>
+                        </span>
+                        </a>
+                    </li>
+              
+              
+             
+              <!-- END Restaurant Food Items -->
+              
+              
+              
+              
+          </ul>
+          <ul data-role="listview" data-divider-theme="b" data-inset="true">
+              <li data-role="list-divider" role="heading">
+                  Drinks
+              </li>
+              
+              <!-- Restaurant Drink Items -->
+              
+               <li data-theme="c" class="simpleCart_shelfItem">
+                      <a class="item_add" href="javascript:;">
+                      <div class="item_name">
+                      Coke
+                      </div>
+                      <span class="ui-li-count">
+                          <div class="item_price">
+                          $1.20
+                          </div>
+                      </span>
+                      </a>
+                  </li>
+              
+              <!-- END Restaurant Drink Items -->
+              
+          </ul>
+          
+          <div data-controltype="textblock" data-content-theme="b">
+              <b>
+              <span class="simpleCart_quantity">
+              </span>
+              items - TOTAL
+              <span class="simpleCart_total">
+              </span>
+              </b>
+              <br>
+              <a href="javascript:;" class="simpleCart_empty" data-role="button" data-theme="b" class="my-btn">   Clear Cart
+              </a>
+              <a href="javascript:;" onclick="passSendForm()" class="simpleCart_checkout" data-role="button" data-theme="e">
+                 Send Order
+              </a>
+              <a href="javascript:;" onclick="passPaypal()" class="simpleCart_checkout" data-role="button" data-theme="e">
+                 Pay with paypal
+              </a>
+          </div>
+      </div>
+  </div>
+  
+</body>
+</html>
+<script>
+  
+    
+      simpleCart({
+        // Uncomment below to switch to PayPal
+        checkout: { 
+          type: "SendForm" , 
+          url: "sendcart.php",
+          method: "POST",
+        }
+
+        checkout: {
+          type: "PayPal",
+          email: "restaurant_owner@restaurant.com"
+        }
+        
+      });
+      
+      function passPaypal() { 
+        simpleCart.checkoutTo = PayPal;
+      }
+
+      function passSendForm() { 
+        simpleCart.checkoutTo = SendForm;
+      }
+      
+</script>
