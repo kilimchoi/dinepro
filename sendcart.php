@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-
+  <link href="https://fonts.googleapis.com/css?family=Limelight|Flamenco|Federo|Yesteryear|Josefin Sans|Spinnaker|Sansita One|Handlee|Droid Sans|Oswald:400,300,700" media="screen" rel="stylesheet" type="text/css" />
   <link href="css/codiqa.ext.min.css" rel="stylesheet">
   <link href="css/jquery.mobile-1.3.1.min.css" rel="stylesheet">
 
@@ -15,17 +15,22 @@
   <script src="js/codiqa.ext.min.js"></script>
   <script src="js/dinepro.js"></script>
   <script src="js/simpleCart.js"></script>
+  
 </head>
-  <body>
+  <body onload="alertConfirmation()">
   
   <div data-role="page" data-control-title="Home" id="page1">
       <div data-theme="b" data-role="header">
+          <a data-role="button" data-direction="reverse" data-transition="slide"
+          data-theme="b" href="#page1" class="ui-btn-left">
+              Back
+          </a>
           <h3>
               DinePro
           </h3>
       </div>
-      <div data-role="content">
-          alertConfirmation();
+      <div data-role="content" style="text-align: center; font-size: 20px; font-weight: bold; margin-top: 130px">
+          Your order will be ready to serve or for pick up in 15 minutes
       </div>
   </div>
 
@@ -53,8 +58,3 @@
 
   </body>
 </html>
-<script>
-  function alertConfirmation() { 
-    alert("Your order will be ready in 15 minutes");
-  }
-</script>
